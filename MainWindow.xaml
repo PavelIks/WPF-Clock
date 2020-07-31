@@ -1,0 +1,61 @@
+﻿<Window x:Class="Clock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clock"
+        mc:Ignorable="d"
+        Title="MainWindow" Background="Red" Loaded="Window_Loaded" Height="400" Width="400"  MinWidth="440" MinHeight="460" WindowStartupLocation="CenterScreen" >
+    
+    <Window.Resources>
+        
+        <ControlTemplate TargetType="Label" x:Key="roundedBtn">
+            <Border CornerRadius="26"
+                    Width="{TemplateBinding Width}"
+                    Height="250"
+                    Background="White">
+                <ContentControl FontSize="22"
+                                Foreground="Red"
+                                FontStyle="Oblique"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Content="{TemplateBinding Content}">
+                </ContentControl>
+            </Border>
+        </ControlTemplate>
+        
+        <ControlTemplate TargetType="Label" x:Key="Tuch">
+            <Border  CornerRadius="26" Background="Black">
+                <ContentControl FontSize="22"
+                                Foreground="Red"
+                                FontStyle="Oblique"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Content="{TemplateBinding Content}">
+                </ContentControl>
+            </Border>
+
+        </ControlTemplate>
+        <ControlTemplate TargetType="Button" x:Key="Button">
+            <Border CornerRadius="26" Background="White">
+                <ContentControl>
+
+                </ContentControl>
+            </Border>
+            
+            <ControlTemplate.Triggers>
+                <Trigger  Property="IsPressed" Value="True" >
+                    <Setter  Property="Background" Value="White">
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        
+    </Window.Resources>
+    
+    <Grid>
+        <Label Name="myBtn" Width="250"  Height="250"  Template="{StaticResource roundedBtn}" ></Label>
+        <Label Name="Tuch"  Width="230" Height="230" Content="" Template="{StaticResource Tuch}" />
+    </Grid>
+    
+</Window>
